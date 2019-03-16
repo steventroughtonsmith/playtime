@@ -61,7 +61,12 @@ end
 SLASH_PLAYTIME1 = '/playtime';
 
 local function handler(msg, editbox)
-	ShowPlaytime()
+	if msg and (msg == 'clear') then
+		PlaytimeDB = {}
+		SavePlaytime()
+	else
+		ShowPlaytime()
+	end
 end
 
 SlashCmdList["PLAYTIME"] = handler;
